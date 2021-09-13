@@ -153,4 +153,4 @@ coloring.addEventListener("change", (e) => {
 
 
 //styling
-root.style.backgroundColor = "blue"
+root.style.backgroundColor = "orange";
