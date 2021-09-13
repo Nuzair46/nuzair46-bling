@@ -60,15 +60,15 @@ const root = document.querySelector("#root");
 
     appendChildren(root, mainList);
 
-    const output = create(null,'div');
+    const currentOutput = create(null,'div');
         const outList = [
             title = create(null, 'h1'),
             image = create(null, 'img'),
             blobImage = create(null, 'img')
         ];
-        appendChildren(output, outList);
+        appendChildren(currentOutput, outList);
 
-    root.appendChild(output);
+    root.appendChild(currentOutput);
 
 
 //function to create element with textContent if needed
@@ -96,30 +96,21 @@ blue.value = "blue";
 black.value = "black";
 green.value = "green";
 
-polaroid.type = "radio";
-tv.type = "radio";
-traitor.type = "radio";
-fallGuy.type = "radio";
-radio.type = "radio";
+setAttributes(polaroid, {"type":"radio","name":"branding","value":"polaroid"});
+setAttributes(tv, {"type":"radio","name":"branding","value":"tv"});
+setAttributes(traitor, {"type":"radio","name":"branding","value":"traitor"});
+setAttributes(fallGuy, {"type":"radio","name":"branding","value":"fallGuy"});
+setAttributes(radio, {"type":"radio","name":"branding","value":"radio"});
 
-polaroid.name = "type"
-tv.name = "type"
-traitor.name = "type"
-fallGuy.name = "type"
-radio.name = "type"
+setAttributes(isBlob, {"type":"radio","name":"blobCheck","value":"isBlob"});
+setAttributes(notBlob, {"type":"radio","name":"blobCheck","value":"notBlob", "checked":"checked"});
 
-polaroid.value = "polaroid"
-tv.value = "tv"
-traitor.value = "traitor"
-fallGuy.value = "fallGuy"
-radio.value = "radio"
-
-isBlob.type = "radio";
-notBlob.type = "radio";
-isBlob.name = "blobCheck";
-notBlob.name = "blobCheck";
-isBlob.value = "isBlob";
-notBlob.value = "notBlob";
+// function to set multiple attributes for radio element
+function setAttributes(element, attrs) {
+    for(var key in attrs) {
+      element.setAttribute(key, attrs[key]);
+    }
+}
 
 //event listeners 
 
@@ -129,7 +120,7 @@ naming.addEventListener("input", (e) => {
 });
 
 //changing the main image with radio
-document.querySelectorAll('input[name="type"]').forEach((selector) => {
+document.querySelectorAll('input[name="branding"]').forEach((selector) => {
     selector.addEventListener("click", (e) => {
         let selected =  e.target.value;
         const images = {
@@ -154,3 +145,12 @@ document.querySelectorAll('input[name="blobCheck"]').forEach((selector) => {
         }
     });
 });
+
+// background color
+coloring.addEventListener("change", (e) => {
+    root.style.backgroundColor = e.target.value;
+})
+
+
+//styling
+root.style.backgroundColor = "blue"
