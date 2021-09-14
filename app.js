@@ -111,6 +111,7 @@ function makeCard(rawCard){
     cardStyler(card);
     cardBoardList.push(card);
     appendChildren(cardBoard, cardBoardList);
+    setAttributes(card, {"id":cardBoardList.length});
 }
 
 //attributes
@@ -253,6 +254,10 @@ make.style.fontWeight = "700";
 buttons.style.margin = "25px 0";
 inputs.style.margin = "50px 0";
 
+cardBoard.style.display = "flex";
+cardBoard.style.flexWrap = "wrap";
+cardBoard.style.justifyContent = "space-between";
+
 buttonList.forEach((element) => {
     element.style.marginRight = "30px";
 })
@@ -299,8 +304,13 @@ function reverseMode(element){
 }
 
 function cardStyler(element){
+    element.style.margin = "30px";
     element.style.width = "500px";
     element.style.height = "500px";
+    element.style.backgroundColor = body.style.backgroundColor;
+    element.style.borderRadius = "15px";
+    element.style.border = "solid #202020 3px";
+    element.style.boxShadow = "4px 4px 10px black"
 }
 
 function darkButtons(element){
