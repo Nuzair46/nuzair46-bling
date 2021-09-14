@@ -4,15 +4,16 @@ Your code goes in this file
 --------------------------------------------------------------
 */
 const root = document.querySelector("#root");
+const body = document.querySelector("body");
 
     const mainList = [
-                        bling = create("BLING!", 'h3'),
+                        bling = create("BLING!", 'p'),
                         detail = create(null, 'div'),
                         options = create(null, 'div')
     ];
         const detailList = [
                             sizzle = create('Sizzle your Life','span'),
-                            make = create('Make a Card' ,'h1')
+                            make = create('Make a Card' ,'p')
         ];
 
         appendChildren(detail, detailList);
@@ -42,7 +43,7 @@ const root = document.querySelector("#root");
             const coloring = create(null,'select');
                 //create more colors later
                 const colorList = [
-                    blue = create('blue', 'option'),
+                    orange = create('orange', 'option'),
                     black = create('black', 'option'),
                     green = create('green', 'option')
                 ]
@@ -62,7 +63,7 @@ const root = document.querySelector("#root");
 
     const currentOutput = create(null,'div');
         const outList = [
-            title = create(null, 'h1'),
+            title = create(null, 'p'),
             image = create(null, 'img'),
             blobImage = create(null, 'img')
         ];
@@ -92,7 +93,7 @@ naming.type = "text";
 naming.placeholder = "Name your Bling.";
 
 coloring.type = "select";
-blue.value = "blue";
+orange.value = "orange";
 black.value = "black";
 green.value = "green";
 
@@ -148,9 +149,19 @@ document.querySelectorAll('input[name="blobCheck"]').forEach((selector) => {
 
 // background color
 coloring.addEventListener("change", (e) => {
-    root.style.backgroundColor = e.target.value;
+    body.style.backgroundColor = e.target.value;
 })
 
 
 //styling
-root.style.backgroundColor = "orange";
+//initial body color.
+body.style.backgroundColor = "orange";
+body.style.fontFamily = "Montserrat";
+
+root.style.padding = "10px 100px";
+
+bling.style.fontSize = "50px";
+bling.style.textAlign = "center";
+
+sizzle.style.fontSize = "30px";
+make.style.fontSize = "60px";
