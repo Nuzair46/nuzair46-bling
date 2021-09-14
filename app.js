@@ -52,8 +52,10 @@ const cardBoardList = [];
                         //create more colors later
                         const colorList = [
                             orange = create('orange', 'option'),
-                            black = create('black', 'option'),
-                            green = create('green', 'option')
+                            aliceblue = create('AliceBlue', 'option'),
+                            bisque = create('Bisque', 'option'),
+                            magenta = create('Magenta', 'option'),
+                            purple = create('Purple', 'option'),
                         ]
                         appendChildren(coloring, colorList);
                     const blobNode = create(null,'span');
@@ -121,7 +123,7 @@ function makeCard(rawCard){
 
 function deleteButtonStuff(element){
     element.src = './assets/images/icon_delete.png';
-    element.width = "100"
+    element.width = "65"
     element.style.position = "absolute";
     element.style.top = "1px";
     element.style.right = "1px";
@@ -137,8 +139,10 @@ naming.placeholder = "Name your Bling.";
 
 coloring.type = "select";
 orange.value = "orange";
-black.value = "black";
-green.value = "green";
+aliceblue.value = "aliceblue";
+bisque.value = "bisque";
+magenta.value = "magenta";
+purple.value = "purple";
 
 setAttributes(polaroid, {"type":"radio","name":"branding","value":"polaroid","id":"po"});
 setAttributes(tv, {"type":"radio","name":"branding","value":"tv","id":"tv"});
