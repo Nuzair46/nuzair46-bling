@@ -27,7 +27,7 @@ const body = document.querySelector("body");
                 const optionList = [
                                     buttons = create(null, 'div'),
                                     inputs = create(null, 'div'),
-                                    submit = create('Submit','button')
+                                    submitImage = create(null,'img')
                 ];
 
                     const buttonList = [
@@ -85,7 +85,6 @@ const body = document.querySelector("body");
         appendChildren(currentOutput, outList);
 
     mainBody.appendChild(currentOutput);
-
 
 //function to create element with textContent if needed
 function create(text,type){
@@ -145,6 +144,9 @@ naming.addEventListener("input", (e) => {
     title.textContent = e.target.value
 });
 
+submitImage.src = `./assets/images/camera.png`;
+submitImage.width = "60";
+
 //changing the main image with radio
 document.querySelectorAll('input[name="branding"]').forEach((selector) => {
     selector.style.display = "none";
@@ -176,7 +178,13 @@ document.querySelectorAll('input[name="blobCheck"]').forEach((selector) => {
 // background color
 coloring.addEventListener("change", (e) => {
     body.style.backgroundColor = e.target.value;
-})
+    // also set the button bgc when the body bgc change.
+    document.querySelectorAll('label[name="brand"]').forEach((label) => {
+        if (label.style.color != "whitesmoke"){
+            label.style.backgroundColor = e.target.value;
+        }
+    });
+});
 
 
 //styling
@@ -245,6 +253,7 @@ darkMode(blobNode);
 darkButtons(naming);
 darkButtons(coloring);
 darkButtons(blobNode);
+darkButtons(submitImage);
 removeOutline(naming);
 removeOutline(coloring);
 
@@ -254,15 +263,22 @@ document.querySelectorAll('label[name="brand"]').forEach((selector) => {
 
 document.querySelectorAll('input[name="branding"]').forEach((selector) => {
     selector.addEventListener("click", (e) => {
-        let label = document.querySelector(`label[for="${selector.id}"]`);
-        console.log(label);
-        darkMode(label);
-    })
+        document.querySelectorAll('label[name="brand"]').forEach((label) => {
+            reverseMode(label);
+        });
+        let currentLabel = document.querySelector(`label[for="${selector.id}"]`);
+        darkMode(currentLabel);
+    });
 });
 
 function darkMode(element){
     element.style.color = "whitesmoke";
     element.style.backgroundColor = "#202020";
+}
+
+function reverseMode(element){
+    element.style.color = "#202020";
+    element.style.backgroundColor = body.style.backgroundColor;
 }
 
 function darkButtons(element){
