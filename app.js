@@ -149,10 +149,10 @@ document.querySelectorAll('input[name="branding"]').forEach((selector) => {
 document.querySelectorAll('input[name="blobCheck"]').forEach((selector) => {
     selector.addEventListener("click", (e) => {
         if(e.target.value === "isBlob"){
-            blobImage.style.display = "block";
+            currentOutput.appendChild(blobImage)
             blobImage.src = `./assets/images/blob.png`;
         }else{
-            blobImage.style.display = "none";
+            currentOutput.removeChild(blobImage)
         }
     });
 });
@@ -178,10 +178,24 @@ bling.style.textAlign = "center";
 mainBody.style.display = "flex";
 mainBody.style.justifyContent = "space-between";
 
+currentOutput.style.width = "500px";
+currentOutput.style.height = "500px";
+currentOutput.textAlign = "center";
+currentOutput.position = "relative";
+
+title.style.textAlign = "center";
+title.style.fontSize = "65px";
+title.style.fontWeight = "900"
+
 image.width = "300";
+image.style.height = "auto";
 blobImage.width = "500";
 
+image.style.display = "block";
+image.style.margin = "100px";
+image.style.zIndex = 2;
+image.style.position = "absolute";
 
-
+blobImage.style.position = "relative";
 sizzle.style.fontSize = "30px";
 make.style.fontSize = "60px";
