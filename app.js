@@ -231,7 +231,7 @@ submitImage.addEventListener("click", () => {
 body.style.backgroundColor = "orange";
 body.style.fontFamily = "Montserrat";
 
-root.style.padding = "10px 200px";
+root.style.padding = "10px 50px";
 root.style.color = "#202020";
 
 bling.style.fontSize = "35px";
