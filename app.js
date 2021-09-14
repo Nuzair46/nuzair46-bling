@@ -273,8 +273,11 @@ make.style.padding = "10px 0 50px 0";
 make.style.fontWeight = "700";
 
 buttons.style.margin = "25px 0";
+buttons.style.display = "flex";
+buttons.style.flexWrap = "wrap";
 inputs.style.margin = "50px 0";
-
+inputs.style.display = "flex";
+inputs.style.flexWrap = "wrap";
 cardBoard.style.display = "flex";
 cardBoard.style.flexWrap = "wrap";
 cardBoard.style.justifyContent = "space-between";
@@ -335,6 +338,7 @@ function cardStyler(element){
 }
 
 function darkButtons(element){
+    element.style.marginTop = "20px"
     element.style.padding = "15px"
     element.style.fontSize = "15px"
     element.style.borderRadius = "15px";
