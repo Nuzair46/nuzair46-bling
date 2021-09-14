@@ -5,10 +5,12 @@ Your code goes in this file
 */
 const root = document.querySelector("#root");
 const body = document.querySelector("body");
+const cardBoardList = [];
 
     const mainList = [
                         bling = create("BLING!", 'p'),
-                        mainBody = create(null, 'div')
+                        mainBody = create(null, 'div'),
+                        cardBoard = create(null, 'div')
     ];
         const mainBodyList = [
                         leftSide = create(null, 'div')
@@ -102,6 +104,15 @@ function appendChildren(parent, children){
     })
 }
 
+// card maker 
+function makeCard(rawCard){
+    let card = create(null, 'div');
+    card.innerHTML = rawCard.innerHTML;
+    cardStyler(card);
+    cardBoardList.push(card);
+    appendChildren(cardBoard, cardBoardList);
+}
+
 //attributes
 naming.type = "text";
 naming.placeholder = "Name your Bling.";
@@ -178,6 +189,7 @@ document.querySelectorAll('input[name="blobCheck"]').forEach((selector) => {
 // background color
 coloring.addEventListener("change", (e) => {
     body.style.backgroundColor = e.target.value;
+    currentOutput.style.backgroundColor = e.target.value;
     // also set the button bgc when the body bgc change.
     document.querySelectorAll('label[name="brand"]').forEach((label) => {
         if (label.style.color != "whitesmoke"){
@@ -185,6 +197,11 @@ coloring.addEventListener("change", (e) => {
         }
     });
 });
+
+//make card
+submitImage.addEventListener("click", () => {
+    makeCard(currentOutput);
+})
 
 
 //styling
@@ -279,6 +296,11 @@ function darkMode(element){
 function reverseMode(element){
     element.style.color = "#202020";
     element.style.backgroundColor = body.style.backgroundColor;
+}
+
+function cardStyler(element){
+    element.style.width = "500px";
+    element.style.height = "500px";
 }
 
 function darkButtons(element){
