@@ -107,11 +107,28 @@ function appendChildren(parent, children){
 // card maker 
 function makeCard(rawCard){
     let card = create(null, 'div');
+    let deleteButton = create(null,'img');
+    deleteButtonStuff(deleteButton);
     card.innerHTML = rawCard.innerHTML;
+    card.style.position = "relative";
+    card.appendChild(deleteButton);
     cardStyler(card);
     cardBoardList.push(card);
     appendChildren(cardBoard, cardBoardList);
     setAttributes(card, {"id":cardBoardList.length});
+    setAttributes(deleteButton, {"id":cardBoardList.length});
+}
+
+function deleteButtonStuff(element){
+    element.src = './assets/images/icon_delete.png';
+    element.width = "100"
+    element.style.position = "absolute";
+    element.style.top = "1px";
+    element.style.right = "1px";
+    element.addEventListener("click", (e) => {
+        cardBoard.removeChild(document.getElementById(`${element.id}`));
+        delete cardBoardList[element.id - 1];
+    })
 }
 
 //attributes
