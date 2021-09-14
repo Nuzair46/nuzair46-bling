@@ -8,56 +8,66 @@ const body = document.querySelector("body");
 
     const mainList = [
                         bling = create("BLING!", 'p'),
-                        detail = create(null, 'div'),
-                        options = create(null, 'div')
+                        mainBody = create(null, 'div')
     ];
-        const detailList = [
-                            sizzle = create('Sizzle your Life','span'),
-                            make = create('Make a Card' ,'p')
+        const mainBodyList = [
+                        leftSide = create(null, 'div')
         ];
+            const leftSideList = [
+                            detail = create(null, 'div'),
+                            options = create(null, 'div')
+            ];
+                const detailList = [
+                                    sizzle = create('Sizzle your Life','span'),
+                                    make = create('Make a Card' ,'p')
+                ];
 
-        appendChildren(detail, detailList);
+                appendChildren(detail, detailList);
 
-        const optionList = [
-                            buttons = create(null, 'div'),
-                            inputs = create(null, 'div'),
-                            submit = create('Submit','button')
-        ];
+                const optionList = [
+                                    buttons = create(null, 'div'),
+                                    inputs = create(null, 'div'),
+                                    submit = create('Submit','button')
+                ];
 
-            const buttonList = [
-                                polaroid = create(null,'input'),
-                                polaroidLabel = create('Polaroid','label'),
-                                tv = create(null,'input'), 
-                                tvLabel = create('TV','label'),
-                                traitor = create(null,'input'), 
-                                traitorLabel = create('Traitor','label'),
-                                fallGuy = create(null,'input'), 
-                                fallGuyLabel = create('Fall Guy','label'),
-                                radio = create(null,'input'),
-                                radioLabel = create('Radio','label')
-                            ];
+                    const buttonList = [
+                                        polaroid = create(null,'input'),
+                                        polaroidLabel = create('Polaroid','label'),
+                                        tv = create(null,'input'), 
+                                        tvLabel = create('TV','label'),
+                                        traitor = create(null,'input'), 
+                                        traitorLabel = create('Traitor','label'),
+                                        fallGuy = create(null,'input'), 
+                                        fallGuyLabel = create('Fall Guy','label'),
+                                        radio = create(null,'input'),
+                                        radioLabel = create('Radio','label')
+                                    ];
 
-            appendChildren(buttons, buttonList);
+                    appendChildren(buttons, buttonList);
+                    
+                    const naming = create(null,'input');
+                    const coloring = create(null,'select');
+                        //create more colors later
+                        const colorList = [
+                            orange = create('orange', 'option'),
+                            black = create('black', 'option'),
+                            green = create('green', 'option')
+                        ]
+                        appendChildren(coloring, colorList);
+
+                    const isBlob = create(null,'input');
+                    const blobLabel = create('Blob','label');
+                    const notBlob = create(null,'input');
+                    const nopeLabel = create('Nope','label');
+                    const inputList = [naming, coloring, isBlob, blobLabel, notBlob, nopeLabel];
+
+                    appendChildren(inputs, inputList);
+
+                appendChildren(options, optionList);  
             
-            const naming = create(null,'input');
-            const coloring = create(null,'select');
-                //create more colors later
-                const colorList = [
-                    orange = create('orange', 'option'),
-                    black = create('black', 'option'),
-                    green = create('green', 'option')
-                ]
-                appendChildren(coloring, colorList);
-
-            const isBlob = create(null,'input');
-            const blobLabel = create('Blob','label');
-            const notBlob = create(null,'input');
-            const nopeLabel = create('Nope','label');
-            const inputList = [naming, coloring, isBlob, blobLabel, notBlob, nopeLabel];
-
-            appendChildren(inputs, inputList);
-
-        appendChildren(options, optionList);    
+            appendChildren(leftSide, leftSideList);
+        
+        appendChildren(mainBody, mainBodyList);
 
     appendChildren(root, mainList);
 
@@ -69,7 +79,7 @@ const body = document.querySelector("body");
         ];
         appendChildren(currentOutput, outList);
 
-    root.appendChild(currentOutput);
+    mainBody.appendChild(currentOutput);
 
 
 //function to create element with textContent if needed
@@ -158,10 +168,20 @@ coloring.addEventListener("change", (e) => {
 body.style.backgroundColor = "orange";
 body.style.fontFamily = "Montserrat";
 
-root.style.padding = "10px 100px";
+root.style.padding = "10px 200px";
+root.style.color = "#202020";
 
-bling.style.fontSize = "50px";
+bling.style.fontSize = "35px";
+bling.style.fontWeight = "900"
 bling.style.textAlign = "center";
+
+mainBody.style.display = "flex";
+mainBody.style.justifyContent = "space-between";
+
+image.width = "300";
+blobImage.width = "500";
+
+
 
 sizzle.style.fontSize = "30px";
 make.style.fontSize = "60px";
