@@ -51,7 +51,7 @@ const cardBoardList = [];
                     const coloring = create(null,'select');
                         //create more colors later
                         const colorList = [
-                            orange = create('orange', 'option'),
+                            orange = create('Orange', 'option'),
                             aliceblue = create('AliceBlue', 'option'),
                             bisque = create('Bisque', 'option'),
                             magenta = create('Magenta', 'option'),
@@ -138,6 +138,14 @@ naming.type = "text";
 naming.placeholder = "Name your Bling.";
 
 coloring.type = "select";
+//solution to fix glossy on safari from https://newbedev.com/how-can-i-remove-the-gloss-on-a-select-element-in-safari-on-mac
+coloring.style.webkitAppearance = "none";
+coloring.style.background = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%238C98F2'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat`;
+coloring.style.backgroundSize = "10px";
+coloring.style.backgroundPosition = "calc(100% - 4px)";
+coloring.style.backgroundRepeat = "no-repeat";
+coloring.style.backgroundColor = "whitesmoke";
+
 orange.value = "orange";
 aliceblue.value = "aliceblue";
 bisque.value = "bisque";
