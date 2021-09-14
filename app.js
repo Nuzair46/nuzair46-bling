@@ -54,12 +54,17 @@ const body = document.querySelector("body");
                             green = create('green', 'option')
                         ]
                         appendChildren(coloring, colorList);
+                    const blobNode = create(null,'span');
+                        const blobList = [
+                            isBlob = create(null,'input'),
+                            blobLabel = create('Blob','label'),
+                            notBlob = create(null,'input'),
+                            nopeLabel = create('Nope','label'),
+                        ];
+                    
+                        appendChildren(blobNode, blobList);
 
-                    const isBlob = create(null,'input');
-                    const blobLabel = create('Blob','label');
-                    const notBlob = create(null,'input');
-                    const nopeLabel = create('Nope','label');
-                    const inputList = [naming, coloring, isBlob, blobLabel, notBlob, nopeLabel];
+                    const inputList = [naming, coloring, blobNode];
 
                     appendChildren(inputs, inputList);
 
@@ -107,11 +112,18 @@ orange.value = "orange";
 black.value = "black";
 green.value = "green";
 
-setAttributes(polaroid, {"type":"radio","name":"branding","value":"polaroid"});
-setAttributes(tv, {"type":"radio","name":"branding","value":"tv"});
-setAttributes(traitor, {"type":"radio","name":"branding","value":"traitor"});
-setAttributes(fallGuy, {"type":"radio","name":"branding","value":"fallGuy"});
-setAttributes(radio, {"type":"radio","name":"branding","value":"radio"});
+setAttributes(polaroid, {"type":"radio","name":"branding","value":"polaroid","id":"po"});
+setAttributes(tv, {"type":"radio","name":"branding","value":"tv","id":"tv"});
+setAttributes(traitor, {"type":"radio","name":"branding","value":"traitor","id":"tr"});
+setAttributes(fallGuy, {"type":"radio","name":"branding","value":"fallGuy","id":"fa"});
+setAttributes(radio, {"type":"radio","name":"branding","value":"radio","id":"ra"});
+
+setAttributes(polaroidLabel, {"name":"brand","for":"po"});
+setAttributes(tvLabel, {"name":"brand","for":"tv"});
+setAttributes(traitorLabel, {"name":"brand","for":"tr"});
+setAttributes(fallGuyLabel, {"name":"brand","for":"fa"});
+setAttributes(radioLabel, {"name":"brand","for":"ra"});
+
 
 setAttributes(isBlob, {"type":"radio","name":"blobCheck","value":"isBlob"});
 setAttributes(notBlob, {"type":"radio","name":"blobCheck","value":"notBlob", "checked":"checked"});
@@ -132,6 +144,7 @@ naming.addEventListener("input", (e) => {
 
 //changing the main image with radio
 document.querySelectorAll('input[name="branding"]').forEach((selector) => {
+    selector.style.display = "none";
     selector.addEventListener("click", (e) => {
         let selected =  e.target.value;
         const images = {
@@ -178,6 +191,8 @@ bling.style.textAlign = "center";
 mainBody.style.display = "flex";
 mainBody.style.justifyContent = "space-between";
 
+mainBody.style.margin = "100px 0";
+
 currentOutput.style.width = "500px";
 currentOutput.style.height = "500px";
 currentOutput.textAlign = "center";
@@ -185,6 +200,7 @@ currentOutput.position = "relative";
 
 title.style.textAlign = "center";
 title.style.fontSize = "65px";
+title.style.height = "65px";
 title.style.fontWeight = "900"
 
 image.width = "300";
@@ -197,5 +213,51 @@ image.style.zIndex = 2;
 image.style.position = "absolute";
 
 blobImage.style.position = "relative";
+
 sizzle.style.fontSize = "30px";
+
 make.style.fontSize = "60px";
+make.style.padding = "10px 0 50px 0";
+make.style.fontWeight = "700";
+
+darkMode(naming);
+darkMode(coloring);
+darkMode(blobNode);
+darkButtons(naming);
+darkButtons(coloring);
+darkButtons(blobNode);
+removeOutline(naming);
+removeOutline(coloring);
+
+
+
+
+document.querySelectorAll('label[name="brand"]').forEach((selector) => {
+    darkButtons(selector);
+});
+
+document.querySelectorAll('input[name="branding"]').forEach((selector) => {
+    selector.addEventListener("click", (e) => {
+        let label = document.querySelector(`label[for="${selector.id}"]`);
+        console.log(label);
+        darkMode(label);
+    })
+});
+
+function darkMode(element){
+    element.style.color = "whitesmoke";
+    element.style.backgroundColor = "#202020";
+}
+
+function darkButtons(element){
+    element.style.padding = "15px"
+    element.style.fontSize = "15px"
+    element.style.borderRadius = "15px";
+    element.style.border = "solid #202020 1px";
+}
+
+function removeOutline(element){
+    element.addEventListener("focus", (e) => {
+        e.target.style.outline = "none";    
+    });
+};
