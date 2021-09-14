@@ -125,8 +125,11 @@ setAttributes(fallGuyLabel, {"name":"brand","for":"fa"});
 setAttributes(radioLabel, {"name":"brand","for":"ra"});
 
 
-setAttributes(isBlob, {"type":"radio","name":"blobCheck","value":"isBlob"});
-setAttributes(notBlob, {"type":"radio","name":"blobCheck","value":"notBlob", "checked":"checked"});
+setAttributes(isBlob, {"type":"radio","name":"blobCheck","value":"isBlob" ,"id":"bl"});
+setAttributes(notBlob, {"type":"radio","name":"blobCheck","value":"notBlob", "checked":"checked","id":"no"});
+
+setAttributes(blobLabel, {"name":"blober","for":"bl"});
+setAttributes(nopeLabel, {"name":"blober","for":"no"});
 
 // function to set multiple attributes for radio element
 function setAttributes(element, attrs) {
@@ -187,6 +190,7 @@ root.style.color = "#202020";
 bling.style.fontSize = "35px";
 bling.style.fontWeight = "900"
 bling.style.textAlign = "center";
+bling.style.textShadow = "4px 4px 1px orange"
 
 mainBody.style.display = "flex";
 mainBody.style.justifyContent = "space-between";
@@ -201,7 +205,8 @@ currentOutput.position = "relative";
 title.style.textAlign = "center";
 title.style.fontSize = "65px";
 title.style.height = "65px";
-title.style.fontWeight = "900"
+title.style.fontWeight = "900";
+title.style.textShadow = "3px 3px 5px black"
 
 image.width = "300";
 image.style.height = "auto";
@@ -220,6 +225,20 @@ make.style.fontSize = "60px";
 make.style.padding = "10px 0 50px 0";
 make.style.fontWeight = "700";
 
+buttons.style.margin = "25px 0";
+inputs.style.margin = "50px 0";
+
+buttonList.forEach((element) => {
+    element.style.marginRight = "30px";
+})
+inputList.forEach((element) => {
+    element.style.marginRight = "30px";
+})
+
+blobList.forEach((element) => {
+    element.style.marginRight = "10px";
+})
+
 darkMode(naming);
 darkMode(coloring);
 darkMode(blobNode);
@@ -228,9 +247,6 @@ darkButtons(coloring);
 darkButtons(blobNode);
 removeOutline(naming);
 removeOutline(coloring);
-
-
-
 
 document.querySelectorAll('label[name="brand"]').forEach((selector) => {
     darkButtons(selector);
@@ -253,7 +269,8 @@ function darkButtons(element){
     element.style.padding = "15px"
     element.style.fontSize = "15px"
     element.style.borderRadius = "15px";
-    element.style.border = "solid #202020 1px";
+    element.style.border = "solid #202020 3px";
+    element.style.boxShadow = "4px 4px 10px black"
 }
 
 function removeOutline(element){
