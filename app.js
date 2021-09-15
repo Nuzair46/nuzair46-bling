@@ -10,7 +10,8 @@ const cardBoardList = [];
     const mainList = [
                         bling = create("BLING!", 'p'),
                         mainBody = create(null, 'div'),
-                        cardBoard = create(null, 'div')
+                        cardBoard = create(null, 'div'),
+                        footer = create(null, 'div')
     ];
         const mainBodyList = [
                         leftSide = create(null, 'div')
@@ -77,6 +78,17 @@ const cardBoardList = [];
             appendChildren(leftSide, leftSideList);
         
         appendChildren(mainBody, mainBodyList);
+
+        const footerList = [
+            credits = create("🖤Credits:", 'p'),
+            pol = create("Polaroid","a"),
+            tve = create("TV","a"),
+            tra = create("Traitor","a"),
+            fal = create("Fall Guy","a"),
+            rad = create("Radio","a")
+        ];
+
+        appendChildren(footer, footerList);
 
     appendChildren(root, mainList);
 
@@ -296,6 +308,22 @@ inputs.style.flexWrap = "wrap";
 cardBoard.style.display = "flex";
 cardBoard.style.flexWrap = "wrap";
 cardBoard.style.justifyContent = "space-between";
+
+footer.style.justifyContent = "center";
+footer.style.display = "flex";
+footer.style.flexWrap = "wrap";
+
+footerList.forEach((element)=>{
+    element.style.margin = "1px 5px";
+    element.style.fontWeight = "bold";
+    console.log(element)
+    if(element.textContent !== "🖤Credits:"){
+        element.href = "#";
+        element.style.textDecoration = "none";
+        element.style.color = "inherit";
+        shrink(element);
+    }
+})
 
 buttonList.forEach((element) => {
     element.style.marginRight = "30px";
