@@ -182,7 +182,6 @@ setAttributes(traitorLabel, {"name":"brand","for":"tr"});
 setAttributes(fallGuyLabel, {"name":"brand","for":"fa"});
 setAttributes(radioLabel, {"name":"brand","for":"ra"});
 
-
 setAttributes(isBlob, {"type":"radio","name":"blobCheck","value":"isBlob" ,"id":"bl"});
 setAttributes(notBlob, {"type":"radio","name":"blobCheck","value":"notBlob", "checked":"checked","id":"no"});
 
@@ -250,7 +249,6 @@ coloring.addEventListener("change", (e) => {
 submitImage.addEventListener("click", () => {
     makeCard(currentOutput);
 })
-
 
 //styling
 //initial body color.
