@@ -409,6 +409,12 @@ buttonList.forEach((element) => {
 })
 shrink(submitImage);
 
+submitImage.addEventListener("click", () => {
+    let colorSave = submitImage.style.backgroundColor
+    submitImage.style.backgroundColor = "whitesmoke";
+    setTimeout(() => { submitImage.style.backgroundColor = colorSave }, 100);
+})
+
 function shrink(element){
     element.style.verticalAlign = "middle";
     element.style.webkitTransform = "perspective(1px) translateZ(0)";
