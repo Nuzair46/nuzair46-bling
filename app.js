@@ -306,7 +306,7 @@ inputs.style.flexWrap = "wrap";
 
 cardBoard.style.display = "flex";
 cardBoard.style.flexWrap = "wrap";
-cardBoard.style.justifyContent = "space-between";
+cardBoard.style.justifyContent = "space-around";
 
 footer.style.justifyContent = "center";
 footer.style.display = "flex";
@@ -489,7 +489,7 @@ function reArrange1025(size){
         mainBody.style.justifyContent = "space-between";
 
         cardBoard.style.flexDirection = "row";
-        cardBoard.style.justifyContent = "space-between";
+        cardBoard.style.justifyContent = "space-around";
     }
 }
 
