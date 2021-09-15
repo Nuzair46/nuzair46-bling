@@ -316,7 +316,6 @@ footer.style.flexWrap = "wrap";
 footerList.forEach((element)=>{
     element.style.margin = "1px 5px";
     element.style.fontWeight = "bold";
-    console.log(element)
     if(element.textContent !== "🖤Credits:"){
         element.href = "#";
         element.style.textDecoration = "none";
