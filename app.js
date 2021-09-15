@@ -269,7 +269,7 @@ mainBody.style.justifyContent = "space-between";
 
 mainBody.style.margin = "100px 0";
 
-currentOutput.style.width = "500px";
+currentOutput.style.width = "350px";
 currentOutput.style.height = "500px";
 currentOutput.textAlign = "center";
 currentOutput.position = "relative";
