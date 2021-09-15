@@ -262,7 +262,7 @@ root.style.overflowX = "hidden";
 bling.style.fontSize = "35px";
 bling.style.fontWeight = "900"
 bling.style.textAlign = "center";
-bling.style.textShadow = "4px 4px 1px orange"
+bling.style.textShadow = "4px 4px 1px gold"
 
 mainBody.style.display = "flex";
 mainBody.style.justifyContent = "space-between";
