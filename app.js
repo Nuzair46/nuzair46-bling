@@ -318,7 +318,7 @@ footerList.forEach((element)=>{
         element.href = "#";
         element.style.textDecoration = "none";
         element.style.color = "inherit";
-        shrink(element);
+        grow(element, 1.1);
     }
 })
 
@@ -380,6 +380,7 @@ function cardStyler(element){
     element.style.borderRadius = "15px";
     element.style.border = "solid #202020 3px";
     element.style.boxShadow = "4px 4px 10px black"
+    grow(element, 1.01);
 }
 
 function darkButtons(element){
@@ -416,6 +417,27 @@ function shrink(element){
     element.addEventListener("mouseenter", (e) =>{
         element.style.webkitTransform = "scale(0.9)";
         element.style.transform = "scale(0.9)";
+        element.style.cursor = "pointer";
+    })
+    element.addEventListener("mouseleave", (e) =>{
+        element.style.webkitTransform = "scale(1)";
+        element.style.transform = "scale(1)";
+    })
+}
+
+function grow(element, scale){
+    element.style.verticalAlign = "middle";
+    element.style.webkitTransform = "perspective(1px) translateZ(0)";
+    element.style.transform = "perspective(1px) translateZ(0)";
+    
+    element.style.webkitTransitionDuration = "0.3s";
+    element.style.transitionDuration = "0.3s";
+    element.style.webkitTransitionProperty = "transform";
+    element.style.transitionProperty = "transform";
+
+    element.addEventListener("mouseenter", (e) =>{
+        element.style.webkitTransform = `scale(${scale})`;
+        element.style.transform = `scale(${scale})`;
         element.style.cursor = "pointer";
     })
     element.addEventListener("mouseleave", (e) =>{
