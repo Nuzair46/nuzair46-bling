@@ -452,3 +452,5 @@ function reArrange720(size){
         root.style.padding = "10px 25px";
     }
 }
+// refresh on window resize using chromium tools. Comment the following line to avoid refresh on resize.
+window.onresize = () => location.reload();
