@@ -281,10 +281,10 @@ title.style.textShadow = "3px 3px 5px black"
 
 image.width = "300";
 image.style.height = "auto";
-blobImage.width = "500";
+blobImage.width = "350";
 
 image.style.display = "block";
-image.style.margin = "100px";
+image.style.margin = "10px";
 image.style.zIndex = 2;
 image.style.position = "absolute";
 
@@ -310,6 +310,7 @@ cardBoard.style.justifyContent = "space-between";
 footer.style.justifyContent = "center";
 footer.style.display = "flex";
 footer.style.flexWrap = "wrap";
+footer.style.marginTop = "50px"; 
 
 footerList.forEach((element)=>{
     element.style.margin = "1px 5px";
@@ -368,14 +369,14 @@ function reverseMode(element){
 }
 
 function cardStyler(element){
-    element.style.margin = "30px";
-    element.style.width = "500px";
-    element.style.height = "500px";
-    if(windowSize720.matches){
-        element.style.margin = "10px";
-        element.style.width = "300px";
+    //element.style.margin = "30px";
+    //element.style.width = "500px";
+    //element.style.height = "500px";
+    //if(windowSize720.matches){
+        element.style.margin = "10px 10px";
+        element.style.width = "320px";
         element.style.height = "400px"; 
-    }
+    //}
     element.style.backgroundColor = body.style.backgroundColor;
     element.style.borderRadius = "15px";
     element.style.border = "solid #202020 3px";
@@ -449,7 +450,7 @@ function grow(element, scale){
 // styles that change with screen size
 let windowSize1024 = window.matchMedia("(max-width: 1024px)");
 reArrange1024(windowSize1024);
-
+windowSize1024.addEventListener('resize', reArrange1024);
 function reArrange1024(size){
     if (size.matches){
         mainBody.style.flexDirection = "column";
@@ -462,11 +463,12 @@ function reArrange1024(size){
 
 let windowSize720 = window.matchMedia("(max-width: 720px)");
 reArrange720(windowSize720);
+windowSize720.addEventListener('resize', reArrange720);
 
 function reArrange720(size){
     if (size.matches){
         currentOutput.style.marginTop = "50px";
-        currentOutput.style.width = "300px";
+        currentOutput.style.width = "350px";
         currentOutput.style.height = "400px";
         image.width = "300";
         blobImage.width = "300";
@@ -477,6 +479,7 @@ function reArrange720(size){
 
 let windowSize1025 = window.matchMedia("(min-width: 1025px)");
 reArrange1025(windowSize1025);
+windowSize1025.addEventListener('resize', reArrange1025);
 
 function reArrange1025(size){
     if (size.matches){
@@ -492,10 +495,7 @@ function reArrange1025(size){
 // refresh on window resize using chromium tools. Comment the following line to avoid refresh on resize.
 //window.onresize = () => location.reload();
 window.onresize = () => {
-    windowSize720 = window.matchMedia("(max-width: 720px)");
-    reArrange720(windowSize720);
-    windowSize1024 = window.matchMedia("(max-width: 1024px)");
-    reArrange1024(windowSize1024);
-    windowSize1025 = window.matchMedia("(min-width: 1025px)");
-    reArrange1025(windowSize1025);
+    reArrange720(window.matchMedia("(max-width: 720px)"));
+    reArrange1024(window.matchMedia("(max-width: 1024px)"));
+    reArrange1025(window.matchMedia("(min-width: 1025px)"));
 }
