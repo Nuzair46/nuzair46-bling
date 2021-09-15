@@ -125,8 +125,8 @@ function deleteButtonStuff(element){
     element.src = './assets/images/icon_delete.png';
     element.width = "65"
     element.style.position = "absolute";
-    element.style.top = "1px";
-    element.style.right = "1px";
+    element.style.top = "-30px";
+    element.style.right = "-30px";
     element.addEventListener("click", (e) => {
         cardBoard.removeChild(document.getElementById(`${element.id}`));
         delete cardBoardList[element.id - 1];
@@ -286,6 +286,7 @@ buttons.style.flexWrap = "wrap";
 inputs.style.margin = "50px 0";
 inputs.style.display = "flex";
 inputs.style.flexWrap = "wrap";
+
 cardBoard.style.display = "flex";
 cardBoard.style.flexWrap = "wrap";
 cardBoard.style.justifyContent = "space-between";
@@ -339,6 +340,11 @@ function cardStyler(element){
     element.style.margin = "30px";
     element.style.width = "500px";
     element.style.height = "500px";
+    if(windowSize720.matches){
+        element.style.margin = "10px";
+        element.style.width = "300px";
+        element.style.height = "400px"; 
+    }
     element.style.backgroundColor = body.style.backgroundColor;
     element.style.borderRadius = "15px";
     element.style.border = "solid #202020 3px";
@@ -359,3 +365,32 @@ function removeOutline(element){
         e.target.style.outline = "none";    
     });
 };
+
+// styles that change with screen size
+let windowSize1024 = window.matchMedia("(max-width: 1024px)");
+reArrange1024(windowSize1024);
+
+function reArrange1024(size){
+    if (size.matches){
+        mainBody.style.flexDirection = "column";
+        mainBody.style.alignItems = "center";
+
+        cardBoard.style.flexDirection = "column";
+        cardBoard.style.alignItems = "center";
+    }
+}
+
+let windowSize720 = window.matchMedia("(max-width: 720px)");
+reArrange720(windowSize720);
+
+function reArrange720(size){
+    if (size.matches){
+        currentOutput.style.marginTop = "50px";
+        currentOutput.style.width = "300px";
+        currentOutput.style.height = "400px";
+        image.width = "300";
+        blobImage.width = "300";
+        image.style.margin = "10px";
+        root.style.padding = "10px 25px";
+    }
+}
