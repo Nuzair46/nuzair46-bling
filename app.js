@@ -277,6 +277,9 @@ currentOutput.position = "relative";
 title.style.textAlign = "center";
 title.style.fontSize = "65px";
 title.style.height = "65px";
+title.style.wordWrap = "break-word";
+title.style.zIndex = 3;
+title.style.position = "relative";
 title.style.fontWeight = "900";
 title.style.textShadow = "3px 3px 5px black"
 
