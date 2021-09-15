@@ -474,5 +474,28 @@ function reArrange720(size){
         root.style.padding = "10px 25px";
     }
 }
+
+let windowSize1025 = window.matchMedia("(min-width: 1025px)");
+reArrange1025(windowSize1025);
+
+function reArrange1025(size){
+    if (size.matches){
+        root.style.padding = "10px 100px";
+        mainBody.style.flexDirection = "row";
+        mainBody.style.justifyContent = "space-between";
+
+        cardBoard.style.flexDirection = "row";
+        cardBoard.style.justifyContent = "space-between";
+    }
+}
+
 // refresh on window resize using chromium tools. Comment the following line to avoid refresh on resize.
-window.onresize = () => location.reload();
+//window.onresize = () => location.reload();
+window.onresize = () => {
+    windowSize720 = window.matchMedia("(max-width: 720px)");
+    reArrange720(windowSize720);
+    windowSize1024 = window.matchMedia("(max-width: 1024px)");
+    reArrange1024(windowSize1024);
+    windowSize1025 = window.matchMedia("(min-width: 1025px)");
+    reArrange1025(windowSize1025);
+}
