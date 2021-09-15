@@ -127,6 +127,7 @@ function deleteButtonStuff(element){
     element.style.position = "absolute";
     element.style.top = "-30px";
     element.style.right = "-30px";
+    shrink(element)
     element.addEventListener("click", (e) => {
         cardBoard.removeChild(document.getElementById(`${element.id}`));
         delete cardBoardList[element.id - 1];
@@ -138,6 +139,7 @@ naming.type = "text";
 naming.placeholder = "Name your Bling.";
 
 coloring.type = "select";
+coloring.style.cursor = "pointer";
 //solution to fix glossy on safari from https://newbedev.com/how-can-i-remove-the-gloss-on-a-select-element-in-safari-on-mac
 coloring.style.webkitAppearance = "none";
 coloring.style.background = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%238C98F2'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat`;
@@ -145,6 +147,10 @@ coloring.style.backgroundSize = "10px";
 coloring.style.backgroundPosition = "calc(100% - 4px)";
 coloring.style.backgroundRepeat = "no-repeat";
 coloring.style.backgroundColor = "whitesmoke";
+
+blobList.forEach((element) => {
+    element.style.cursor = "pointer";
+});
 
 orange.value = "orange";
 aliceblue.value = "aliceblue";
@@ -365,6 +371,33 @@ function removeOutline(element){
         e.target.style.outline = "none";    
     });
 };
+
+// shrink buttons on hover
+buttonList.forEach((element) => {
+    shrink(element);
+})
+shrink(submitImage);
+
+function shrink(element){
+    element.style.verticalAlign = "middle";
+    element.style.webkitTransform = "perspective(1px) translateZ(0)";
+    element.style.transform = "perspective(1px) translateZ(0)";
+    
+    element.style.webkitTransitionDuration = "0.3s";
+    element.style.transitionDuration = "0.3s";
+    element.style.webkitTransitionProperty = "transform";
+    element.style.transitionProperty = "transform";
+
+    element.addEventListener("mouseenter", (e) =>{
+        element.style.webkitTransform = "scale(0.9)";
+        element.style.transform = "scale(0.9)";
+        element.style.cursor = "pointer";
+    })
+    element.addEventListener("mouseleave", (e) =>{
+        element.style.webkitTransform = "scale(1)";
+        element.style.transform = "scale(1)";
+    })
+}
 
 // styles that change with screen size
 let windowSize1024 = window.matchMedia("(max-width: 1024px)");
