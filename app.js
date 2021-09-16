@@ -404,7 +404,7 @@ function darkButtons(element){
     element.style.fontSize = "15px"
     element.style.borderRadius = "15px";
     element.style.border = "solid #202020 3px";
-    element.style.boxShadow = "4px 4px 10px black"
+    element.style.boxShadow = "4px 4px 2px black"
 }
 
 function removeOutline(element){
