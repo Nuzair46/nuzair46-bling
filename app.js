@@ -52,11 +52,16 @@ const cardBoardList = [];
                     const coloring = create(null,'select');
                         //create more colors later
                         const colorList = [
-                            orange = create('Orange', 'option'),
-                            aliceblue = create('AliceBlue', 'option'),
-                            bisque = create('Bisque', 'option'),
-                            magenta = create('Magenta', 'option'),
-                            purple = create('Purple', 'option'),
+                            gold = create('Gold', 'option'),
+                            snow = create('Snow', 'option'),
+                            dodgerBlue = create('DodgerBlue', 'option'),
+                            lightSalmon = create('LightSalmon', 'option'),
+                            lightCoral = create('LightCoral', 'option'),
+                            orangeRed = create('OrangeRed', 'option'),
+                            tomato = create('Tomato', 'option'),
+                            darkOrchid = create('DarkOrchid', 'option'),
+                            springGreen = create('SpringGreen', 'option'),
+                            thistle = create('Thistle', 'option'),
                         ]
                         appendChildren(coloring, colorList);
                     const blobNode = create(null,'span');
@@ -164,11 +169,16 @@ blobList.forEach((element) => {
     element.style.cursor = "pointer";
 });
 
-orange.value = "orange";
-aliceblue.value = "aliceblue";
-bisque.value = "bisque";
-magenta.value = "magenta";
-purple.value = "purple";
+gold.value = "gold";
+snow.value =  "snow";
+dodgerBlue.value =  "dodgerblue";
+lightSalmon.value =  "lightsalmon";
+lightCoral.value = "lightcoral";
+orangeRed.value = "orangered";
+tomato.value =  "tomato";
+darkOrchid.value =  "darkorchid";
+springGreen.value = "springgreen";
+thistle.value = "thistle";
 
 setAttributes(polaroid, {"type":"radio","name":"branding","value":"polaroid","id":"po"});
 setAttributes(tv, {"type":"radio","name":"branding","value":"tv","id":"tv"});
@@ -252,7 +262,7 @@ submitImage.addEventListener("click", () => {
 
 //styling
 //initial body color.
-body.style.backgroundColor = "orange";
+body.style.backgroundColor = "gold";
 body.style.fontFamily = "Montserrat";
 body.style.overflowX = "hidden";
 root.style.padding = "10px 100px";
@@ -262,7 +272,7 @@ root.style.overflowX = "hidden";
 bling.style.fontSize = "35px";
 bling.style.fontWeight = "900"
 bling.style.textAlign = "center";
-bling.style.textShadow = "4px 4px 1px gold"
+bling.style.textShadow = "4px 4px 1px orange"
 
 mainBody.style.display = "flex";
 mainBody.style.justifyContent = "space-between";
